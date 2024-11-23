@@ -14,7 +14,7 @@ func Greeting() (string){
     Use commands to navigate and interact with the website.
     To get started, try entering the command <span class='hst-command'>help</span> and hitting enter.
 
-    Session start time: {formattedTime}
+    Session start time: {{formattedTime}}
     `
     result := fmt.Sprintf(greeting, map[string]interface{}{
         "time": formattedTime,
