@@ -36,7 +36,7 @@ func Main(Context openruntimes.Context) openruntimes.Response {
 	}
 
 	// The req object contains the request data
-	if Context.Req.Path == "/ping" {
+	if Context.Req.Path == "/greeting" {
 		// Use res object to respond with text(), json(), or binary()
 		// Don't forget to return a response!
 		return Context.Res.Text("Pong")
