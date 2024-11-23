@@ -16,11 +16,11 @@ func Main(Context openruntimes.Context) openruntimes.Response {
 
 	// The req object contains the request data
 	if Context.Req.Path == "/greeting" {
-		return app.Greeting()
+		return Context.Res.Text(app.Greeting())
 	}
 
 	return Context.Res.Json(Response{
-		Message:       "Thank you for hitting my API",
+		Message:   "Thank you for hitting my API",
 		Ask:       "Please done attack me :)",
 	})
 }
