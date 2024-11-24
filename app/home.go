@@ -4,9 +4,10 @@ import (
 	"strings"
 )
 
-func Home() (string){
-
-	multiline_string  := `<code class='ascii' style='display:inline-block; white-space:pre; letter-spacing:0; line-height:1.4; font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace; font-size:12px; border-width:1px; border-style:solid; border-color:lightgray;'><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
+func Home(flags string) (string){
+	var resp_string string
+	if flags == "" {
+		resp_string  = `<code class='ascii' style='display:inline-block; white-space:pre; letter-spacing:0; line-height:1.4; font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace; font-size:12px; border-width:1px; border-style:solid; border-color:lightgray;'><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
 <span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>@</span><span>@</span><span>@</span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
 <span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>@</span><span>@</span><span>,</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
 <span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>&</span><span>@</span><span> </span><span> </span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
@@ -28,8 +29,10 @@ func Home() (string){
 <span> </span><span>(</span><span>@</span><span>@</span><span>@</span><span>@</span><span>@</span><span>@</span><span>@</span><span>@</span><span>@</span><span>@</span><span>%</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
 <span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>#</span><span>,</span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
 <span> </span><span> </span><span> </span><span> </span><span> </span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span></code>`
+	} else {
+		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>home</span> command does not implement flags.`
+	}
+	resp_string = strings.ReplaceAll(resp_string , "\n", "<br>")
 
-	multiline_string = strings.ReplaceAll(multiline_string , "\n", "<br>")
-
-	return multiline_string 
+	return resp_string 
 }

@@ -8,9 +8,9 @@ import (
 
 func Main(Context openruntimes.Context) openruntimes.Response {
 	switch Context.Req.Path {
-	case "/greeting": return Context.Res.Text(app.Greeting())
-	case "/home": return Context.Res.Text(app.Home())
-	case "/help": return Context.Res.Text(app.Help())
-	default: return Context.Res.Text(app.Fail())
+	case "/greeting": return Context.Res.Text(app.Greeting(Context.Req.BodyText()))
+	case "/home": return Context.Res.Text(app.Home(Context.Req.BodyText()))
+	case "/help": return Context.Res.Text(app.Help(Context.Req.BodyText()))
+	default: return Context.Res.Text(app.Fail(Context.Req.Path))
 	}
 }

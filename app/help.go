@@ -4,9 +4,10 @@ import (
 	"strings"
 )
 
-func Help() (string){
-
-	multiline_string  := `<b>Welcome to the terminal interface!</b>
+func Help(flags string) (string){
+	var resp_string string
+	if flags == "" {
+		resp_string  = `<b>Welcome to the terminal interface!</b>
 
     This terminal interface allows you to navigate and interact with my website using simple text commands. Below, you'll find a list of available commands and how to use them. For example, to view the About page, you would enter the command <span class='hst-command'>page --about</span>.
 
@@ -38,8 +39,10 @@ func Help() (string){
     Remember, commands are case-sensitive. If you encounter any issues or have questions about a command, typing <span class='hst-command'>help</span> will bring you back here.
 
     Enjoy exploring my website through the terminal!`
+	} else {
+		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>help</span> command does not implement flags.`
+	}
+	resp_string = strings.ReplaceAll(resp_string , "\n", "<br>")
 
-	multiline_string = strings.ReplaceAll(multiline_string , "\n", "<br>")
-
-	return multiline_string 
+	return resp_string 
 }

@@ -1,14 +1,16 @@
 package app
 
 import (
+	"fmt"
 	"strings"
 )
 
-func Fail() (string){
+func Fail(cmd string) (string){
 
-	multiline_string  := `<span class='hst-error'>Error:</span> the <span class='hst-command'>help</span> command not recognised.`
+	resp_string  := `<span class='hst-error'>Error:</span> the <span class='hst-command'>%v</span> command not recognised.`
 
-	multiline_string = strings.ReplaceAll(multiline_string , "\n", "<br>")
+	resp_string  = fmt.Sprintf(resp_string, cmd)
+	resp_string = strings.ReplaceAll(resp_string , "\n", "<br>")
 
-	return multiline_string 
+	return resp_string 
 }
