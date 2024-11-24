@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -30,7 +31,8 @@ func Home(flags string) (string){
 <span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span>#</span><span>,</span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span>
 <span> </span><span> </span><span> </span><span> </span><span> </span><span>@</span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span><span> </span></code>`
 	} else {
-		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>home</span> command does not implement flags.`
+		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>home</span> command does not implement flags '%v'.`
+		resp_string  = fmt.Sprintf(resp_string, flags)
 	}
 	resp_string = strings.ReplaceAll(resp_string , "\n", "<br>")
 

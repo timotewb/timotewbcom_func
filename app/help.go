@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -40,7 +41,8 @@ func Help(flags string) (string){
 
     Enjoy exploring my website through the terminal!`
 	} else {
-		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>help</span> command does not implement flags.`
+		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>help</span> command does not implement flags '%v'.`
+        resp_string  = fmt.Sprintf(resp_string, flags)
 	}
 	resp_string = strings.ReplaceAll(resp_string , "\n", "<br>")
 

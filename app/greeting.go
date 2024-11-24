@@ -21,7 +21,8 @@ Session start time: %v`
 
 		resp_string  = fmt.Sprintf(resp_string, formattedTime)
 	} else {
-		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>greeting</span> command does not implement flags.`
+		resp_string  = `<span class='hst-error'>Error:</span> the <span class='hst-command'>greeting</span> command does not implement flags '%v'.`
+		resp_string  = fmt.Sprintf(resp_string, flags)
 	}
 
 	resp_string = strings.ReplaceAll(resp_string , "\n", "<br>")
