@@ -10,7 +10,7 @@ func Greeting(flags string) (string){
 	var resp_string string
 	if flags == "" {
 		t := time.Now()
-		formattedTime := t.Format("Saturday 11 January 2006 at 03.04PM")
+		formattedTime := t.Format("Saturday, 02 January 2006 at 03.04PM")
 
 		resp_string  = `<b>Welcome to the terminal interface!</b>
 
